@@ -3,23 +3,17 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 -- Highlight on yank
 autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = "IncSearch",
-            timeout = "100",
-        })
-    end,
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = "100",
+		})
+	end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function(args)
-        require("conform").format({ bufnr = args.buf })
-    end,
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
 })
--- Autocommand to trigger on start of Neovim
--- vim.api.nvim_create_autocmd("VimEnter", {
--- 	callback = function()
--- 		require("mini.starter").open()
--- 	end,
--- })
