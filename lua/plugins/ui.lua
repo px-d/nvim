@@ -35,7 +35,6 @@ return {
 		"laytan/cloak.nvim",
 		config = function()
 			require("cloak").setup({})
-
 			vim.keymap.set({ "n" }, "<S-C-P>", ":CloakToggle<cr>")
 		end,
 	},
@@ -43,23 +42,9 @@ return {
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {},
-		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
-			{
-				"S",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").treesitter()
-				end,
-				desc = "Flash Treesitter",
-			},
-		},
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {},
 	},
 }

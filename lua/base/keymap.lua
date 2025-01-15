@@ -22,7 +22,20 @@ set("n", "<esc>", ":nohl<cr>", { noremap = true })
 set("n", "<C-s>", ":w<cr>", { noremap = true })
 
 -- File Picker
-set("n", "<leader>p", ":Telescope find_files<cr>", {})
+set("n", "<c-p>", ":Telescope find_files<cr>", {})
 set("n", "<S-C-B>", ":Telescope buffers<cr>", {})
 set("n", "<c-d>", ":Telescope diagnostics<cr>", {})
 -- set("n", "<S-C-G>", ":Telescope git_branches<cr>", {})
+
+-- Flash
+set("n", "<c-f>", ":lua require('flash').jump()<cr>")
+
+-- Gitsigns
+set("n", "<s-c-g>", ":Gitsigns<cr>", { desc = "Open GitSigns" })
+
+-- LSP Stuff
+set("n", "gd", require("telescope.builtin").lsp_definitions, { desc = "[G]o to [D]efinition" })
+set("n", "gr", require("telescope.builtin").lsp_references, { desc = "[G]o to [R]eferences" })
+set("n", "gI", require("telescope.builtin").lsp_implementations, { desc = "[G]o to [I]mplementations" })
+set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
