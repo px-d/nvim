@@ -9,6 +9,7 @@ opt.fileencoding = "utf-8"
 opt.encoding = "utf-8"
 opt.matchpairs = { "(:)", "[:]", "{:}", "<:>" }
 opt.syntax = "enable"
+opt.cmdheight = 0
 
 -- Indentation
 opt.autoindent = true

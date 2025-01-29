@@ -1,30 +1,40 @@
+local complete_char = ";"
+
 return {
-	"saghen/blink.cmp",
-	dependencies = "rafamadriz/friendly-snippets",
-	version = "*",
-	opts = {
-		-- 'default' for mappings similar to built-in completion
-		-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-		-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-		-- See the full "keymap" documentation for information on defining your own keymap.
-		keymap = { preset = "super-tab" },
+	{ "rafamadriz/friendly-snippets" },
+	{ "moyiz/blink-emoji.nvim" },
 
-		appearance = {
-			use_nvim_cmp_as_default = true,
-			nerd_font_variant = "mono",
-		},
+	{
+		"saghen/blink.cmp",
+		version = "*",
 
-		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-			providers = {
-				lazydev = {
-					name = "LazyDev",
-					module = "lazydev.integrations.blink",
-					score_offset = 100,
-				},
+		opts = {
+			keymap = { preset = "super-tab" },
+
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
 			},
-			cmdline = {},
+
+			sources = {
+				default = { "lazydev", "lsp", "snippets", "path", "buffer", "emoji" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100,
+					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 15, -- Tune by preference
+						opts = { insert = true }, -- Insert emoji (default) or complete its name
+					},
+				},
+
+				cmdline = {},
+			},
 		},
+		opts_extend = { "sources.default" },
 	},
-	opts_extend = { "sources.default" },
 }
