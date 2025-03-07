@@ -31,8 +31,6 @@ return {
 						opts = { insert = true }, -- Insert emoji (default) or complete its name
 					},
 				},
-
-				cmdline = {},
 			},
 		},
 		opts_extend = { "sources.default" },

@@ -62,6 +62,10 @@ return {
 	},
 	{
 		"ibhagwan/fzf-lua",
-		opts = {},
+		opts = {
+			files = {
+				cmd = "rg --hidden --files --glob '!node_modules' --glob '!.nuxt' .",
+			},
+		},
 	},
 }
