@@ -22,3 +22,5 @@ set("n", "<leader>e", ":Pick files<CR>")
 set("n", "<leader>b", ":Pick buffers<CR>")
 
 set("n", "<leader>p", require("oil").toggle_float)
+-- set("n", "<leader>t", ":NvimTreeFocus<CR>", { silent = true })
+set("n", "<leader>t", ":NvimTreeToggle<CR>", { silent = true })

@@ -10,9 +10,11 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/catppuccin/nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
 })
 
-vim.lsp.enable({ "lua_ls", "svelte", "ts_ls", "tailwindcss", "typescript", "prisma", "gopls" })
+vim.lsp.enable({ "lua_ls", "svelte", "ts_ls", "tailwindcss", "typescript", "prisma", "gopls", "json-lsp", "biome" })
 
 require("base.options")
 require("base.keymap")
