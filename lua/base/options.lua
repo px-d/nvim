@@ -5,11 +5,17 @@ vim.o.tabstop = 2
 vim.o.swapfile = false
 vim.g.mapleader = " "
 vim.opt.winborder = "rounded"
+vim.opt.scrolloff = 7
 vim.opt.signcolumn = "yes"
 vim.opt.matchpairs = { "(:)", "[:]", "{:}", "<:>" }
 
-require("vague").setup({ transparent = false })
 vim.cmd("colorscheme catppuccin-macchiato")
+
+local undodir = vim.fn.stdpath("data") .. "/undo"
+vim.opt.undofile = true -- enable persistent undo
+vim.opt.undodir = undodir
+vim.opt.undolevels = 1000
+vim.opt.undoreload = 10000
 
 vim.diagnostic.config({
 	underline = false,

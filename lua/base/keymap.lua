@@ -9,6 +9,9 @@ set("n", "<c-m>", ":bnext<cr>", { desc = "Navigate to next buffer." })
 set("n", "<c-x>", ":bdelete<cr>", { desc = "Delete buffer" })
 
 -- LSP Stuff
+set("n", "gd", ":FzfLua lsp_definitions<cr>", { desc = "[G]o to [D]efinition" })
+set("n", "gr", ":FzfLua lsp_references<cr>", { desc = "[G]o to [R]eferences" })
+set("n", "gI", ":FzfLua lsp_implementations<cr>", { desc = "[G]o to [I]mplementations" })
 set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[n]ame symbol" })
 set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
 
@@ -17,10 +20,7 @@ set("n", "<c-f>", function()
 	require("flash").jump()
 end)
 
--- Picking stuff
-set("n", "<leader>e", ":Pick files<CR>")
-set("n", "<leader>b", ":Pick buffers<CR>")
-
+set("n", "<leader>e", ":FzfLua files<CR>")
+set("n", "<leader>b", ":FzfLua buffers<CR>")
 set("n", "<leader>p", require("oil").toggle_float)
--- set("n", "<leader>t", ":NvimTreeFocus<CR>", { silent = true })
-set("n", "<leader>t", ":NvimTreeToggle<CR>", { silent = true })
+set("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })

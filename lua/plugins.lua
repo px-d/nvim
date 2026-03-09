@@ -1,6 +1,6 @@
 -- Mini
-require("mini.pick").setup()
 require("mini.surround").setup()
+require("mini.extra").setup()
 require("mini.ai").setup()
 require("mini.notify").setup()
 require("mini.tabline").setup()
@@ -12,6 +12,12 @@ require("mini.diff").setup({
 	view = {
 		style = "sign",
 		signs = { add = "█", change = "▒", delete = "-" },
+	},
+})
+
+require("fzf-lua").setup({
+	files = {
+		cmd = "rg --hidden --files --glob '!{node_modules,.nuxt,.git,.next,target}' .",
 	},
 })
 
@@ -27,6 +33,11 @@ require("nvim-tree").setup({
 			quit_on_open = true,
 		},
 	},
+	update_focused_file = {
+		enable = true,
+		update_cwd = true,
+	},
+
 	on_attach = function(bufnr)
 		local api = require("nvim-tree.api")
 
@@ -52,6 +63,7 @@ require("auto-session").setup({
 -- Utilities
 require("showkeys").setup({ position = "top-right" })
 require("catppuccin").setup({ no_italic = true })
+require("tabout").setup()
 
 -- LSP/Completion Stuff
 require("mason").setup()
@@ -60,7 +72,10 @@ require("blink.cmp").setup({
 	fuzzy = { implementation = "lua" },
 	keymap = { preset = "super-tab" },
 })
-require("nvim-treesitter.configs").setup({ ensure_installed = { "svelte", "typescript", "javascript", "prisma" } })
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "svelte", "typescript", "javascript", "prisma" },
+	highlight = { enable = true },
+})
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },

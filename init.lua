@@ -12,9 +12,11 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/catppuccin/nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
+	{ src = "https://github.com/abecodes/tabout.nvim" },
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
-vim.lsp.enable({ "lua_ls", "svelte", "ts_ls", "tailwindcss", "typescript", "prisma", "gopls", "json-lsp", "biome" })
+vim.lsp.enable({ "lua_ls", "svelte", "tailwindcss", "vtsls", "prisma", "gopls", "json-lsp", "biome" })
 
 require("base.options")
 require("base.keymap")
